@@ -14,8 +14,7 @@ async def news_every_minute():
 
         if len(fresh_news) >= 1:
             for k, v in sorted(fresh_news.items()):
-                news = f"{hbold(datetime.datetime.fromtimestamp(v['article_date_timestamp']))}\n" \
-                        f"{hbold(v['article_title'])}\n"\
+                news = f"{hbold(v['article_title'])}\n"\
                        f"{hlink(v['article_title'], v['article_url'])}\n\n" \
                        f"#{v['article_cat']}"
                 await bot.send_message(GROUP_ID, news, disable_notification=True)
