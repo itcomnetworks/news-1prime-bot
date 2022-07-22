@@ -19,7 +19,7 @@ async def news_every_minute():
                        f"{hlink(v['article_title'], v['article_url'])}\n\n" \
                        f"#{v['article_cat']}"
                 await bot.send_message(GROUP_ID, news, disable_notification=True)
-                await asyncio.sleep(5)
+                #await asyncio.sleep(5)
 
         else:
             pass
