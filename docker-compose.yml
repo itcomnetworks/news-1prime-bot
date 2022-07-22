@@ -9,4 +9,6 @@ services:
     #  - BOT_TOKEN=${BOT_TOKEN}
     env_file:
       - .env
+    volumes:
+      - '.:/codebase'
     restart: always
