@@ -1,5 +1,9 @@
-async def on_startup(_):
+from config import WEBHOOK_URL, WEBAPP_HOST, WEBAPP_PORT
+
+
+async def on_startup(dp):
     print("Bot get started!")
+    await bot.set_webhook(WEBHOOK_URL)
 
 
 if __name__ == '__main__':
@@ -10,6 +14,11 @@ if __name__ == '__main__':
 
     loop = asyncio.get_event_loop()
     loop.create_task(news_every_minute())
-    executor.start_polling(dispatcher=dp, skip_updates=True, on_startup=on_startup)
 
+    executor.start_webhook(dispatcher=dp,
+                           webhook_path=WEBHOOK_URL,
+                           skip_updates=True,
+                           on_startup=on_startup,
+                           host=WEBAPP_HOST,
+                           port=WEBAPP_PORT)
 
